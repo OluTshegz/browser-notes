@@ -50,7 +50,6 @@ function Form({ route, method }) {
             <input className="form-input" type="password" value={password}
                 onChange={ handlePasswordChange } placeholder="Password"
             />
-            { loading && <LoadingIndicator /> }
             <button className="form-button" type="submit">{ name }</button>
         </form>
     );

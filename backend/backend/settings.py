@@ -15,6 +15,8 @@ from datetime import timedelta
 from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,9 +33,9 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"] # any different hosts to host our application
 
 REST_FRAMEWORK = {
-    # "DEFAULT_AUTHENTICATION_CLASSES": {
-    #     "rest_framework_simplejwt.authentication.JWTAuthentication",
-    # },
+    "DEFAULT_AUTHENTICATION_CLASSES": {
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    },
     "DEFAULT_PERMISSION_CLASSES": {
         "rest_framework.permissions.IsAuthenticated",
     },
