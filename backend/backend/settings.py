@@ -33,9 +33,9 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"] # any different hosts to host our application
 
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": {
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    },
+    # "DEFAULT_AUTHENTICATION_CLASSES": {
+    #     "rest_framework_simplejwt.authentication.JWTAuthentication",
+    # },
     "DEFAULT_PERMISSION_CLASSES": {
         "rest_framework.permissions.IsAuthenticated",
     },
