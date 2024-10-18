@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import "../styles/Form.css";
 
 
 function Form({ route, method }) {
@@ -10,8 +11,24 @@ function Form({ route, method }) {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        setLoading(true);
         e.preventDefault();
+
+        try {
+            const res = await api.post(route, { username, password })
+            if (method === "login") {
+                localStorage.setItem(ACCESS_TOKEN, res.data.access);
+                localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+                navigate("/")
+            } else {
+                navigate("/login")
+            }
+        } catch (error) {
+            alert(error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleUsernameChange = (e) => {
@@ -33,6 +50,7 @@ function Form({ route, method }) {
             <input className="form-input" type="password" value={password}
                 onChange={ handlePasswordChange } placeholder="Password"
             />
+            { loading && <LoadingIndicator /> }
             <button className="form-button" type="submit">{ name }</button>
         </form>
     );
