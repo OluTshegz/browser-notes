@@ -7,7 +7,7 @@ from .models import Note
 
 # Create your views here.
 class NoteListCreate(generics.ListCreateAPIView):
-    authentication_classes = []
+    # authentication_classes = []
     serializer_class = NoteSerializer
     permission_classes = [IsAuthenticated]
 
@@ -32,7 +32,7 @@ class NoteDelete(generics.DestroyAPIView):
 
 
 class CreateUserView(generics.CreateAPIView):
-    authentication_classes = []  # Allow registration without authentication
+    # authentication_classes = []  # Allow registration without authentication
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
