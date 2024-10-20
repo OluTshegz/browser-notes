@@ -17,15 +17,24 @@ function Home () {
             .catch((err) => alert(err));
     };
 
-    const deleteNotes = (id) => {
+    const deleteNote = (id) => {
         api.delete(`/api/notes/delete/${id}`)
-        .then((res) => {
-            if (res.status === 204) { alert("Note Deleted!"); }
-            else { alert("Failed to delete Note."); }
-        })
-        .catch((err) => alert(err));
+            .then((res) => {
+                if (res.status === 204) { alert("Note Deleted!"); }
+                else { alert("Failed to delete Note."); }
+            })
+            .catch((err) => alert(err));
     };
 
+    const createNote = (e) => {
+        e.preventDefault();
+        api.post("/api/notes/", { content, title })
+            .then((res) => {
+                if (res.status === 201) { alert("Note Created!"); }
+                else { alert("Failed to create Note."); }
+            })
+            .catch((err) => alert(err));
+    };
 
     return <div>Home</div>;
 }
