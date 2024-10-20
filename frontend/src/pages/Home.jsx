@@ -44,7 +44,7 @@ function Home () {
         <div>
 
             <div>
-                <h2>Notes</h2>
+                <h2>Browser Notes</h2>
                 { notes.map((note) => < Note note={note} onDelete={ deleteNote } key={ note.id } />) }
             </div>
 
