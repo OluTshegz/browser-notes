@@ -11,12 +11,21 @@ function Home () {
     }, []);
 
     const getNotes = () => {
-        api
-            .get("/api/notes/")
+        api.get("/api/notes/")
             .then((res) => res.data)
             .then((data) => { setNotes(data); console.log(data); })
             .catch((err) => alert(err));
     };
+
+    const deleteNotes = (id) => {
+        api.delete(`/api/notes/delete/${id}`)
+        .then((res) => {
+            if (res.status === 204) { alert("Note Deleted!"); }
+            else { alert("Failed to delete Note."); }
+        })
+        .catch((err) => alert(err));
+    };
+
 
     return <div>Home</div>;
 }
