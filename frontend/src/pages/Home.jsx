@@ -22,6 +22,7 @@ function Home () {
             .then((res) => {
                 if (res.status === 204) { alert("Note Deleted!"); }
                 else { alert("Failed to delete Note."); }
+                getNotes();
             })
             .catch((err) => alert(err));
     };
@@ -32,6 +33,7 @@ function Home () {
             .then((res) => {
                 if (res.status === 201) { alert("Note Created!"); }
                 else { alert("Failed to create Note."); }
+                getNotes();
             })
             .catch((err) => alert(err));
     };
