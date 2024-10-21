@@ -159,3 +159,7 @@ This project is not yet licensed (under the MIT License).
 ----------
 
 This `README.md` file provides clear guidance on how to set up and use the application, as well as detailed information on its structure, features, and API endpoints.
+
+Presentation AI slide link:
+https://app.presentations.ai/view/0B8fUs
+

@@ -5,9 +5,8 @@ from .serializers import UserSerializer, NoteSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Note
 
-# Create your views here.
+
 class NoteListCreate(generics.ListCreateAPIView):
-    # authentication_classes = [] # Allow users without unauthentication
     serializer_class = NoteSerializer
     permission_classes = [IsAuthenticated]
 
@@ -32,7 +31,6 @@ class NoteDelete(generics.DestroyAPIView):
 
 
 class CreateUserView(generics.CreateAPIView):
-    # authentication_classes = []  # Allow registration without authentication
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
