@@ -18,7 +18,7 @@ authRouter.post("/register", async (req, res) => {
         return res.status(201).json({ success: true, message: "User Account Created Successfully" })
     } catch (error) {
         console.log(error)
-        return res.status(500).json({ success: false, message: "Register Auth Error in creating User Account" })
+        return res.status(500).json({ success: false, message: "Register Auth Error in creating User Account, Please try again at a later time" })
     }
 })
 
@@ -37,7 +37,7 @@ authRouter.post("/login", async (req, res) => {
         return res.status(200).json({ success: true, token, user: { name: user.name }, message: "User Account Login Successfully" })
     } catch (error) {
         console.log(error)
-        return res.status(500).json({ success: false, message: "Login Auth Error in logging User Account" })
+        return res.status(500).json({ success: false, message: "Login Auth Error in logging User Account, Please try again at a later time" })
     }
 })
 
