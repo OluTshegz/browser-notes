@@ -66,7 +66,8 @@ const Signup = () => {
                         <input type="password"
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="w-full px-3 py-2 border"
-                                placeholder="Enter Password" required
+                                placeholder="Enter Password"
+                                autoComplete="off" required
                         />
                     </div>
 
