@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContextProvider";
 
-const Navbar = () => {
-  const handleLogout = (e) => {
-    e.preventDefault();
-  };
+const Navbar = ({ setQuery }) => {
+  // const handleLogout = (e) => {
+  //   e.preventDefault();
+  //   localStorage.removeItem("token");
+  //   window.location.reload();
+  // };
 
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <>
@@ -18,6 +20,7 @@ const Navbar = () => {
           type="text"
           placeholder="Search for your notes.."
           className="bg-gray-600 px-4 py-2 rounded"
+          onChange={ (e) => setQuery(e.target.value) }
         />
         <div>
           { (!user) ? (
@@ -36,7 +39,8 @@ const Navbar = () => {
             <>
               <span className="mr-4">{ user.name }</span>
               <button
-                onClick={ handleLogout }
+                // onClick={ handleLogout }
+                onClick={ logout }
                 className="bg-red-500 px-4 py-2 rounded"
               >
                 Logout
