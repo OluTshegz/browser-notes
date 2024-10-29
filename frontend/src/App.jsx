@@ -9,7 +9,6 @@ import AuthContextProvider from "./context/AuthContextProvider"
 function App() {
   return (
     <>
-      <div className="text-4xl">Browser Notes</div>
       <BrowserRouter>
         <AuthContextProvider>
           <Routes>
