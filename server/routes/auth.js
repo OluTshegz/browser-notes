@@ -3,6 +3,8 @@ import User from "../models/User.js"
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+import middleware from "../middleware/middleware.js"
+
 const authRouter = express.Router()
 
 authRouter.post("/register", async (req, res) => {
@@ -39,6 +41,10 @@ authRouter.post("/login", async (req, res) => {
         console.log(error)
         return res.status(500).json({ success: false, message: "Login Auth Error in logging User Account, Please try again at a later time" })
     }
+})
+
+authRouter.get("/verify", middleware, async (req, res) => {
+    return res.status(200).json({ success: true, user: req.user })
 })
 
 export default authRouter
