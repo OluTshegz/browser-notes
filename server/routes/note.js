@@ -16,4 +16,36 @@ noteRouter.post("/add", middleware, async (req, res) => {
     }
 })
 
+noteRouter.get("/", async (req, res) => {
+    try {
+        const notes = await Note.find()
+        return res.status(200).json({ success: true, notes })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({ success: false, message: "Note Error in fetching Notes, Please try again later" })
+    }
+})
+
+noteRouter.put("/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const updateNote = await Note.findByIdAndUpdate(id, req.body)
+        return res.status(200).json({ success: true, updateNote })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({ success: false, message: "Note Error in updating Notes, Please try again later" })
+    }
+})
+
+noteRouter.delete("/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const deleteNote = await Note.findByIdAndDelete(id)
+        return res.status(200).json({ success: true, deleteNote })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({ success: false, message: "Note Error in deleting Notes, Please try again later" })
+    }
+})
+
 export default noteRouter
