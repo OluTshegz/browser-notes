@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 import Home from "./pages/Home"
 import Signup from "./pages/Signup"
@@ -16,6 +18,7 @@ function App() {
             <Route path="/register" element={ <Signup /> }></Route>
             <Route path="/login" element={ <Login /> }></Route>
           </Routes>
+          <ToastContainer />
         </AuthContextProvider>
       </BrowserRouter>
     </>
