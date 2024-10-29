@@ -10,7 +10,6 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="text-1.5xl">Navbar</div>
       <nav className="bg-gray-800 p-4 text-white flex justify-between items-center">
         <div className="text-xl font-bold">
           <Link to="/">Browser Notes</Link>
