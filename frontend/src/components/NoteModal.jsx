@@ -9,6 +9,9 @@ const NoteModal = ({ closeModal, addNote, currentNote, editNote }) => {
         if (currentNote) {
             setTitle(currentNote.title)
             setDescription(currentNote.description)
+        } else {
+            setTitle("")
+            setDescription("")
         }
     }, [currentNote])
 

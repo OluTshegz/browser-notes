@@ -19,8 +19,8 @@ const Home = () => {
 
     useEffect(() => {
         setFilteredNotes(notes.filter((note) => {
-            note.title.toLowerCase().includes(query.toLowerCase()) ||
-            note.description.toLowerCase().includes(query.toLowerCase())
+            return (note.title.toLowerCase().includes(query.toLowerCase()) ||
+            note.description.toLowerCase().includes(query.toLowerCase()))
         }))
     }, [query, notes])
 
@@ -122,7 +122,7 @@ const Home = () => {
                     )) : (notes.map((note) => (
                         <NoteCard key={note._id} note={note} onEdit={ onEdit } deleteNote={ deleteNote } />) )) }
                 </div>
-                <button onClick={ () => setModalOpen(true) }
+                <button onClick={ () => { setCurrentNote(null); setModalOpen(true) } }
                     className="fixed right-4 bottom-4 text-2xl bg-teal-500 text-white font-bold p-2 rounded-full">
                     +
                 </button>

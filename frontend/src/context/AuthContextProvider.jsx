@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import PropTypes from 'prop-types'
 
@@ -6,6 +7,7 @@ const authContext = createContext()
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null)
+  const navigate = useNavigate()
 
   const login = (user) => {
     setUser(user)
@@ -15,6 +17,7 @@ const AuthContextProvider = ({ children }) => {
     e.preventDefault();
     localStorage.removeItem("token")
     setUser(null)
+    navigate("/login")
   };
 
   useEffect(() => {
